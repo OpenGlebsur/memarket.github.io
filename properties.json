@@ -1,0 +1,96 @@
+{
+  "repo_name": "The Reopen MEMarket Repo",
+  "creator": "the reopen",
+  "last_updated": "1.05.2026",
+  "apps": [
+    {
+      "id": "reopen.rewinstore",
+      "base_url": "https://github.com/OpenGlebsur/WP8-MEMarketRepo/tree/main/apps",
+      "title": "ReWinStore",
+      "screenshots": [""],
+      "author": "ReOpenGlebsur",
+      "description": "мини магазин для windows phone : )",
+      "icon_url": "https://github.com/OpenGlebsur/WP8-MEMarketRepo/blob/main/apps/ReWinStore.png?raw=true",
+      "size": "1,52 kb",
+      "category": "store",
+      "versions": [
+        {
+            "version": "1.0.0.8",
+            "download_url": "https://github.com/OpenGlebsur/WP8-MEMarketRepo/raw/refs/heads/main/apps/ReWinStoreMobile.appx"
+        }
+        
+  ]
+},
+    {
+      "id": "reopen.notedramewallpapers",
+      "base_url": "https://github.com/OpenGlebsur/WP8-MEMarketRepo/tree/main/apps",
+      "title": "Note Drame Wallapapers",
+      "screenshots": [""],
+      "author": "ReOpenGlebsur",
+      "description": "мини фото приложение",
+      "icon_url": "https://github.com/OpenGlebsur/WP8-MEMarketRepo/blob/main/apps/empty.png?raw=true",
+      "size": "18,9 mb",
+      "category": "photo",
+      "versions": [
+        {
+            "version": "1.0.0.0",
+            "download_url": "https://github.com/OpenGlebsur/WP8-MEMarketRepo/raw/refs/heads/main/apps/NoteDrameWallpapers.appx"
+        }
+        
+  ]
+},
+        {
+      "id": "reopen.units",
+      "base_url": "https://github.com/OpenGlebsur/WP8-MEMarketRepo/tree/main/apps",
+      "title": "Units Mobile (SIMPLE PORT)",
+      "screenshots": [""],
+      "author": "ReOpenGlebsur",
+      "description": "мини утилита для просмотра времини сделал по лени",
+      "icon_url": "https://github.com/OpenGlebsur/WP8-MEMarketRepo/blob/main/apps/Units.png?raw=true",
+      "size": "373 KB",
+      "category": "tools",
+      "versions": [
+        {
+            "version": "1.0.0.0",
+            "download_url": "https://github.com/OpenGlebsur/WP8-MEMarketRepo/raw/refs/heads/main/apps/Units%20Mobile%20(SIMPLEPORTS).appx"
+        }
+        
+  ]
+},
+         {
+      "id": "reopen.translator",
+      "base_url": "https://github.com/OpenGlebsur/WP8-MEMarketRepo/tree/main/apps",
+      "title": "Yandex Translator (API NOT WORK)",
+      "screenshots": [""],
+      "author": "ReOpenGlebsur",
+      "description": "сделал по лени",
+      "icon_url": "https://github.com/OpenGlebsur/WP8-MEMarketRepo/blob/main/apps/empty.png?raw=true",
+      "size": "363 KB",
+      "category": "entertaintment",
+      "versions": [
+        {
+            "version": "1.0.0.0",
+            "download_url": "https://github.com/OpenGlebsur/WP8-MEMarketRepo/raw/refs/heads/main/apps/YandexTranslator(NOTWORK).appx"
+        } 
+        
+  ]
+},
+       {
+      "id": "nokia.lab",
+      "base_url": "https://github.com/OpenGlebsur/WP8-MEMarketRepo/tree/main/apps",
+      "title": "Lumia Apps Brail (Lost media)",
+      "screenshots": [""],
+      "author": "Nokia",
+      "description": "приложение найдо благодоря reopenglebsur",
+      "icon_url": "https://github.com/OpenGlebsur/WP8-MEMarketRepo/blob/main/apps/LAB.png?raw=true",
+      "size": "1.96 mb",
+      "category": "store",
+      "versions": [
+        {
+            "version": "1.0.0.0",
+            "download_url": "https://github.com/OpenGlebsur/WP8-MEMarketRepo/raw/refs/heads/main/apps/Lumia%20Apps%20Brazil(WORKED).xap"
+        } 
+        
+  ]
+},
+  

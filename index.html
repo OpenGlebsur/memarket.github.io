@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>WP8 Market — Index Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #f6f9fc 0%, #eef2f5 100%);
+            color: #1a2c3e;
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* header card */
+        .repo-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 2rem;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 4px 8px -2px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.2s ease;
+        }
+
+        .repo-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #1e3c4c, #2b5c6f);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .repo-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            color: #2c5f7a;
+            border-top: 1px solid #e2edf2;
+            padding-top: 0.9rem;
+        }
+
+        .repo-meta span {
+            background: #eef3f8;
+            padding: 0.25rem 0.9rem;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stats-badge {
+            background: #e9ecef;
+            font-weight: 500;
+        }
+
+        /* grid grid — responsive card layout */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 1.8rem;
+            margin-top: 0.8rem;
+        }
+
+        /* карточка приложения */
+        .app-card {
+            background: #ffffff;
+            border-radius: 1.8rem;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(0px);
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
+            border-color: rgba(80, 140, 160, 0.2);
+        }
+
+        .card-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f8fafc;
+            padding: 1.8rem 1rem 1rem 1rem;
+            border-bottom: 1px solid #f0f2f5;
+        }
+
+        .card-icon img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 18px;
+            background: white;
+            box-shadow: 0 6px 12px -6px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s;
+        }
+
+        .app-card:hover .card-icon img {
+            transform: scale(1.02);
+        }
+
+        .card-content {
+            padding: 1.2rem 1.4rem 1rem;
+            flex: 1;
+        }
+
+        .app-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: #0f2c3b;
+            letter-spacing: -0.2px;
+            line-height: 1.3;
+        }
+
+        .app-author {
+            font-size: 0.8rem;
+            color: #4f7f99;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .category-badge {
+            background: #e6f0f5;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #2c6c8c;
+            letter-spacing: 0.3px;
+        }
+
+        .description {
+            font-size: 0.85rem;
+            color: #2f4b5e;
+            margin: 0.75rem 0 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            opacity: 0.85;
+        }
+
+        .meta-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0.6rem 0 1.2rem;
+            font-size: 0.75rem;
+            color: #4e6f82;
+            border-top: 1px solid #ecf3f7;
+            padding-top: 0.8rem;
+        }
+
+        .file-size {
+            font-weight: 500;
+            background: #f1f6f9;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .version {
+            font-family: monospace;
+            font-size: 0.7rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #1e3a4b;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.65rem 1rem;
+            border-radius: 60px;
+            transition: all 0.2s;
+            margin: 0 1.4rem 1.4rem 1.4rem;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(100deg, #1c3f50, #205b72);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(100deg, #123645, #174a5e);
+            transform: scale(0.98);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .loading-container, .error-container {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 3rem;
+            margin-top: 2rem;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 42px;
+            height: 42px;
+            border: 4px solid #cbdde6;
+            border-radius: 50%;
+            border-top-color: #1c6c8c;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error-container {
+            color: #b13e3e;
+            background: #fff2f0;
+            border-left: 5px solid #c72a2a;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3.5rem;
+            font-size: 0.7rem;
+            color: #6e8ba0;
+            border-top: 1px solid #d8e3ea;
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 680px) {
+            body {
+                padding: 1rem;
+            }
+            .repo-header h1 {
+                font-size: 1.5rem;
+            }
+            .apps-grid {
+                gap: 1.2rem;
+            }
+            .download-btn {
+                margin: 0 1rem 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="headerPlaceholder" class="repo-header">
+        <div class="loading-container" style="padding: 2rem;">
+            <div class="spinner"></div>
+            <p style="margin-top: 1rem;">Загрузка репозитория...</p>
+        </div>
+    </div>
+
+    <div id="appsContainer">
+        <div class="loading-container">
+            <div class="spinner"></div>
+            <p>Загрузка списка приложений...</p>
+        </div>
+    </div>
+    <footer>WP8 Market · данные загружаются напрямую из JSON (fetch, без редиректов)</footer>
+</div>
+
+<script>
+    // Прямая загрузка JSON (без редиректов, CORS-safe)
+    const JSON_URL = "https://raw.githubusercontent.com/OpenGlebsur/WP8-MEMarketRepo/refs/heads/main/properties.json";
+
+    async function loadMarketData() {
+        const headerDiv = document.getElementById('headerPlaceholder');
+        const appsContainer = document.getElementById('appsContainer');
+
+        try {
+            const response = await fetch(JSON_URL);
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            const data = await response.json();
+
+            // --- Рендер шапки (repo_name / creator / last_updated) ---
+            const repoName = data.repo_name || 'WP8 Market Repo';
+            const creator = data.creator || 'Community';
+            const lastUpdated = data.last_updated || '—';
+            const appsCount = data.apps ? data.apps.length : 0;
+
+            headerDiv.innerHTML = `
+                <h1>📱 ${escapeHtml(repoName)}</h1>
+                <div class="repo-meta">
+                    <span>👤 создатель: ${escapeHtml(creator)}</span>
+                    <span>📅 обновлён: ${escapeHtml(lastUpdated)}</span>
+                    <span class="stats-badge">📦 приложений: ${appsCount}</span>
+                </div>
+            `;
+
+            // --- Рендер карточек приложений ---
+            if (!data.apps || !Array.isArray(data.apps) || data.apps.length === 0) {
+                appsContainer.innerHTML = `<div class="error-container"><strong>⚠️ В этом репозитории пока нет приложений.</strong></div>`;
+                return;
+            }
+
+            const apps = data.apps;
+            let cardsHTML = `<div class="apps-grid">`;
+
+            for (const app of apps) {
+                // Безопасное получение данных
+                const title = app.title || 'Без названия';
+                const author = app.author || 'Unknown';
+                const description = app.description || '—';
+                const category = app.category || 'other';
+                const size = app.size || '—';
+                const iconUrl = app.icon_url || '';
+                const versions = app.versions && Array.isArray(app.versions) ? app.versions : [];
+                let downloadUrl = '#';
+                let versionText = '—';
+                if (versions.length > 0) {
+                    downloadUrl = versions[0].download_url || '#';
+                    versionText = versions[0].version || 'v?.?.?';
+                }
+
+                // Если ссылка для скачивания не прямая — всё равно используем ту, что в JSON
+                // Обработка отсутствия иконки
+                const iconHtml = iconUrl && (iconUrl.startsWith('http') || iconUrl.startsWith('//')) 
+                    ? `<img src="${escapeHtml(iconUrl)}" alt="icon" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23365f73%22%3E%3Cpath%20d%3D%22M12%202C6.48%202%202%206.48%202%2012s4.48%2010%2010%2010%2010-4.48%2010-10S17.52%202%2012%202zm-2%2015h-2v-2h2v2zm0-4h-2V7h2v6z%22%2F%3E%3C%2Fsvg%3E'">`
+                    : `<div style="width:80px;height:80px;background:#ecf3f8;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:2rem;">📦</div>`;
+
+                cardsHTML += `
+                    <div class="app-card">
+                        <div class="card-icon">
+                            ${iconHtml}
+                        </div>
+                        <div class="card-content">
+                            <div class="app-title">${escapeHtml(title)}</div>
+                            <div class="app-author">
+                                ${escapeHtml(author)}
+                                <span class="category-badge">${escapeHtml(category)}</span>
+                            </div>
+                            <div class="description">${escapeHtml(description)}</div>
+                            <div class="meta-footer">
+                                <span class="file-size">💾 ${escapeHtml(size)}</span>
+                                <span class="version">📌 версия ${escapeHtml(versionText)}</span>
+                            </div>
+                        </div>
+                        ${downloadUrl !== '#' 
+                            ? `<a href="${escapeHtml(downloadUrl)}" class="download-btn" target="_blank" rel="noopener noreferrer">⬇️ Скачать .appx / .xap</a>` 
+                            : `<div class="download-btn" style="background:#9bb7c7; cursor:default;">🚫 ссылка отсутствует</div>`}
+                    </div>
+                `;
+            }
+
+            cardsHTML += `</div>`;
+            appsContainer.innerHTML = cardsHTML;
+
+        } catch (error) {
+            console.error('Ошибка загрузки JSON:', error);
+            headerDiv.innerHTML = `<div class="error-container"><strong>❌ Не удалось загрузить репозиторий</strong><br>${escapeHtml(error.message)}<br><span style="font-size:0.85rem; margin-top:1rem;">Проверьте доступность JSON-файла и политику CORS (файл на raw.githubusercontent.com разрешает CORS)</span></div>`;
+            appsContainer.innerHTML = `<div class="error-container">⚠️ Невозможно отобразить приложения. Ошибка соединения с API.</div>`;
+        }
+    }
+
+    // вспомогательная безопасная вставка текста
+    function escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+        });
+    }
+
+    loadMarketData();
+</script>
+</body>
+  </html>
